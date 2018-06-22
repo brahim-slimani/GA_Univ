@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="/WEB-INF/template.xhtml">
+    <ui:define name="head">
+        <title>Gestion Absences ESI-SBA</title>
+        <h:outputStylesheet name="css/starter-template.css"/>
+    </ui:define>
+    <ui:define name="body">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Gestion des Absences ESI-SBA</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="./index.jsf">Acceuil</a></li>
+                        <li class="active"><a href="./listeEtudiants.jsf">Etudiants</a></li>
+                        <li><a href="./absences.jsf">Absences</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="starter-template">
+                <h2 style="font-family: 'AR CENA'; text-align: left;">Création d'un nouveau étudiant</h2>
+
+                <div style="border-radius: 5px;border:solid gray 1px; width: 700px; ">
+                    <h:form class="form-horizontal">
+                        <fieldset>
+                            <legend> Ajouter un étudiant</legend>
+                            <div class="form-group">
+                                <h:outputLabel class="control-label col-sm-2" for="code">Code etu *</h:outputLabel>
+                                <div class="col-sm-6">
+                                    <h:inputText class="form-control"  id="code" label="Code étudiant" value="#{etudiantControl.code}" required="true"/>
+                                </div>
+                                <h:message style="color: #ac2925" id="CodeMessage" for="code" errorClass="erreur"/>
+                            </div>
+
+                            <div class="form-group">
+                                <h:outputLabel class="control-label col-sm-2"  for="nom">Nom *</h:outputLabel>
+                                <div class="col-sm-6">
+                                    <h:inputText class="form-control" id="nom" label="Nom" value="#{etudiantControl.nom}" required="true"/>
+                                </div>
+                                <h:message style="color: #ac2925" id="NomMessage" for="nom" errorClass="erreur"/>
+                            </div>
+
+                            <div class="form-group">
+                                <h:outputLabel class="control-label col-sm-2" for="prenom">Prenom *</h:outputLabel>
+                                <div class="col-sm-6">
+                                    <h:inputText class="form-control" id="prenom" label="Prenom" value="#{etudiantControl.prenom}" required="true"/>
+                                </div>
+                                <h:message style="color: #ac2925" id="PrenomMessage" for="prenom" errorClass="erreur"/>
+                            </div>
+
+
+                            <div class="form-group">
+                                <h:outputLabel class="control-label col-sm-2" for="promotion">Promotion *</h:outputLabel>
+                                <div class="col-sm-6">
+                                    <h:inputText class="form-control" id="promotion" label="Promotion" value="#{etudiantControl.promotion}" required="true"/>
+                                </div>
+                                <h:message style="color: #ac2925" id="PromotionMessage" for="promotion" errorClass="erreur"/>
+                            </div>
+
+                            <div class="form-group">
+                                <h:outputLabel class="control-label col-sm-2" for="specialite">Spécialité *</h:outputLabel>
+
+                                <div class="col-sm-6">
+                                    <h:inputText class="form-control" id="specialite" label="Spécialité" value="#{etudiantControl.specialite}" required="true"/>
+
+                                </div>
+                                <h:message style="color: #ac2925" id="SpecialteMessage" for="specialite" errorClass="erreur"/>
+                            </div>
+
+                            <div class="form-group">
+                                <h:outputLabel class="control-label col-sm-2" for="genre">Genre *</h:outputLabel>
+                                <div class="col-sm-6">
+                                    <!--<h:inputText class="form-control" id="genre" label="Genre" value="#{etudiantControl.genre}" required="true"/>-->
+                                    <h:selectOneRadio  id="genre" label="Genre" value="#{etudiantControl.genre}" required="true">
+                                        <f:selectItem itemValue="homme" itemLabel="&nbsp; homme &nbsp; &nbsp;"  />
+                                        <f:selectItem itemValue="femme" itemLabel="&nbsp; femme" />
+                                    </h:selectOneRadio>
+
+                                </div>
+                                <h:message style="color: #ac2925" id="GenreMessage" for="genre" errorClass="erreur"/>
+                            </div>
+
+                            <div class="form-group">
+                                <h:outputLabel class="control-label col-sm-2" for="email">Email *</h:outputLabel>
+
+                                <div class="col-sm-6">
+                                    <h:inputText  class="form-control" id="email" label="Email" value="#{etudiantControl.email}" required="true"/>
+                                </div>
+                                <h:message style="color: #ac2925" id="EmailMessage" for="email" errorClass="erreur"/>
+                            </div>
+
+                            <h:commandButton class="btn btn-info" value="Valider l'ajout" action="#{etudiantControl.ajouterEtudiant()}"/>
+                            &nbsp; &nbsp;
+                            <h:button class="btn btn-warning" value="Annuler l'ajout" outcome="listeEtudiants.xhtml"></h:button>
+                        </fieldset>
+                    </h:form>
+                    <br/>
+
+                </div>
+
+
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>
+
+
+
+

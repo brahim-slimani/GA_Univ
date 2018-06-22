@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+</h:head>
+
+<ui:composition  template="/WEB-INF/template.xhtml">
+
+    <ui:define name="head">
+        <title>Gestion des absences</title>
+        <h:outputStylesheet name="css/starter-template.css"/>
+    </ui:define>
+    <ui:define name="body">
+
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Gestion des Absences ESI-SBA</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="./index.jsf">Acceuil</a></li>
+                        <li><a href="./listeEtudiants.jsf">Etudiants</a></li>
+                        <li class="active"><a href="./absences.jsf">Absences</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+
+
+            <div class="starter-template">
+                <h2 style="font-family: 'AR CENA'; text-align: left;">Marque d'une absence</h2>
+
+                <div style="border-radius: 5px;border:solid gray 1px; width: 700px">
+
+
+                    <h:form class="form-horizontal">
+
+
+                        <fieldset>
+                            <legend> Ajouter une absence</legend>
+
+
+                            <div class="form-group">
+                                <h:outputLabel class="control-label col-sm-2" for="code">Code etu *</h:outputLabel>
+                                <div class="col-sm-6">
+                                    <h:inputText disabled="true" class="form-control"  id="code" label="Code étudiant" value="#{absenceControl.studentAbsent.codeEtudiant}" required="true"/>
+                                </div>
+                                <h:message style="color: #ac2925" id="CodeMessage" for="code" errorClass="erreur"/>
+                            </div>
+
+                            <div class="form-group">
+                                <h:outputLabel class="control-label col-sm-2"  for="nom">Nom *</h:outputLabel>
+                                <div class="col-sm-6">
+                                    <h:inputText disabled="true" class="form-control" id="nom" label="Nom" value="#{absenceControl.studentAbsent.nom}" required="true"/>
+                                </div>
+                                <h:message style="color: #ac2925" id="NomMessage" for="nom" errorClass="erreur"/>
+                            </div>
+
+                            <div class="form-group">
+                                <h:outputLabel class="control-label col-sm-2" for="prenom">Prenom *</h:outputLabel>
+                                <div class="col-sm-6">
+                                    <h:inputText disabled="true" class="form-control" id="prenom" label="Prenom" value="#{absenceControl.studentAbsent.prenom}" required="true"/>
+                                </div>
+                                <h:message style="color: #ac2925" id="PrenomMessage" for="prenom" errorClass="erreur"/>
+                            </div>
+
+                            <div class="form-group">
+                                <h:outputLabel class="control-label col-sm-2" for="promotion">Promotion *</h:outputLabel>
+                                <div class="col-sm-6">
+                                    <h:inputText disabled="true" class="form-control" id="promotion" label="Promotion" value="#{absenceControl.studentAbsent.promotion}" required="true"/>
+                                </div>
+                                <h:message style="color: #ac2925" id="PromotionMessage" for="promotion" errorClass="erreur"/>
+                            </div>
+
+                            <!--<div class="form-group">-->
+                            <!--<h:outputLabel class="control-label col-sm-2" for="specialite">Spécialité *</h:outputLabel>-->
+
+                            <!--<div class="col-sm-6">-->
+                            <!--<h:inputText class="form-control" id="specialite" label="Spécialité" value="#{absenceControl.studentAbsent.specialite}" required="true"/>-->
+
+                            <!--</div>-->
+                            <!--<h:message style="color: #ac2925" id="SpecialteMessage" for="specialite" errorClass="erreur"/>-->
+                            <!--</div>-->
+
+                            <div class="form-group">
+
+                                <h:outputLabel class="control-label col-sm-2" for="dateAbsence">Absenté le *</h:outputLabel>
+
+                                <div class="col-sm-4">
+                                    <p:calendar id="dateAbsence" value="#{absenceControl.dateAbsence}" showOn="button"/>
+
+                                </div>
+                                <h:message style="color: #ac2925" id="dateMessage" for="dateAbsence" errorClass="erreur"/>
+                            </div>
+
+                            <h:commandButton class="btn btn-info" value="Valider l'absence" action="#{absenceControl.validerAbsence(absenceControl.studentAbsent)}"></h:commandButton>
+                            &nbsp; &nbsp;
+                            <h:button class="btn btn-warning" value="Annuler l'absence" outcome="listeAbsences.xhtml"></h:button>
+                        </fieldset>
+                    </h:form>
+                    <br/>
+
+                </div>
+
+
+            </div>
+            <h:graphicImage value="resources/images/Absent.jpg" width="280px" height="200px" style="float: right; margin-top: -450px;"></h:graphicImage>
+
+        </div>
+    </ui:define>
+</ui:composition>
+
+
+
+</html>
+
+
+
+

@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="/WEB-INF/template.xhtml">
+    <ui:define name="head">
+        <title>Gestion Absences ESI-SBA</title>
+        <h:outputStylesheet name="css/starter-template.css"/>
+    </ui:define>
+    <ui:define name="body">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Gestion des Absences ESI-SBA</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="./index.jsf">Acceuil</a></li>
+                        <li><a href="./listeEtudiants.jsf">Etudiants</a></li>
+                        <li><a href="./absences.jsf">Absences</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="starter-template">
+                <h1 style="text-align: center;">Bienvenus pour la gestion des absences ESI-SBA</h1>
+
+                <hr/>
+
+                <h4>Sur cette platforme vous avez la main de gérer les absences des étudiants de l'ESI SBA
+                d'une manière plus fiable et plus délicate, <br/>Ajoutez vos étudiants et marquez leur absences </h4>
+
+                <br/>
+                <div>
+                    <h:button class="btn btn-primary"  value="Liste des étudiants" outcome="listeEtudiants"/>
+                    &nbsp; &nbsp;
+                    <h:button class="btn btn-danger"  value="Liste des absences" outcome="listeAbsences"/>
+                    &nbsp; &nbsp;
+                    <h:button class="btn btn-warning"  value="Absences non justifiées" outcome="absencesNonJustifies"/>
+                    &nbsp; &nbsp;
+                    <h:button class="btn btn-success"  value="Absences justifiées" outcome="absencesJustifies"/>
+                </div>
+
+                <hr/>
+
+                <h:graphicImage value="resources/images/image.jpg" height="500px" width="500px"/>
+
+            </div>
+        </div>
+
+    </ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,17 @@
+body {
+    padding-top: 50px;
+}
+
+.starter-template {
+    padding: 40px 15px;
+    text-align: center;
+}
+
+
+.table{
+    width: 100%;
+    margin-bottom: 15px;
+    border-collapse: collapse;
+}
+
+
